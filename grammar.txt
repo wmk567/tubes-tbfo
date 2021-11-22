@@ -1,0 +1,36 @@
+Terminals:
++ - * / = ' " ( ) , : ! < > int float str and or not break continue pass true false if elif else for in range while def return input print from import as is pass var num word class len open with raise
+Variables:
+START X VAR VAL BOOL BOOLOP BOOLEANEX OP WORD TYPE BREAK PASS CONTINUE IF ELIF ELSE PRINT INPUT FOR RANGE BRACKET WHILE DEF RETURN IMPORT FROM METHOD CLASS COMMENT CONTENT RAISE
+Productions:
+START -> START START | VAR = X | VAR + = X | VAR - = X | VAR * = X | VAR / = X | IF | PRINT | FOR | WHILE | DEF | CLASS | IMPORT | FROM | COMMENT; 
+X ->  VAR | VAL | X OP X | INPUT | X , X | METHOD;
+VAR -> var;
+VAL -> num | X OP X | X * * X | X / / X | ( X ) | BOOL | WORD;
+BOOL -> true | false | BOOL and BOOL | BOOL or BOOL | not BOOL | X is X | X BOOLOP X;
+BOOLOP -> > | < | = = | ! = | < = | > =;
+BOOLEANEX -> ( BOOL ) : START | BOOL : START;
+OP -> + | - | * | / | %;
+WORD -> " word " | ' word ' | WORD + WORD;
+TYPE -> int | float | str;
+BREAK -> break;
+PASS -> pass;
+CONTINUE -> continue;
+IF -> IF ELIF | IF ELSE | if BOOLEANEX | IF BREAK | IF PASS | IF CONTINUE | IF RAISE;
+ELIF -> ELIF ELIF | ELIF ELSE |elif BOOLEANEX;
+ELSE -> else : START;
+PRINT -> print BRACKET;
+INPUT -> input BRACKET | TYPE ( INPUT );
+FOR -> for VAR in WORD : START | for VAR in RANGE : START;
+RANGE -> range BRACKET;
+BRACKET -> ( X ) | ( );
+WHILE -> while BOOLEANEX;
+DEF -> def VAR BRACKET : START | DEF RETURN;
+RETURN -> return BOOL | return VAL;
+IMPORT -> import VAR as VAR | import VAR;
+FROM -> from VAR IMPORT;
+METHOD -> len BRACKET | with open BRACKET as VAR
+CLASS -> class VAR : START;
+COMMENT -> " " " CONTENT " " " | ' ' ' CONTENT ' ' ';
+CONTENT -> VAR | CONTENT CONTENT;
+RAISE -> raise BRACKET

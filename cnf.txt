@@ -1,0 +1,122 @@
+START -> START START | VAR A1 | VAR B1 | VAR C1 | VAR D1 | VAR E1 | IF ELIF | IF ELSE | CL BOOLEANEX | IF BREAK | IF PASS | IF CONTINUE | IF RAISE | CJ BRACKET | CH Y1 | CH Z1 | CE BOOLEANEX | CD AB1 | DEF RETURN | CB AC1 | CB VAR | BZ AD1 | CO AF1 | CM AG1
+CZ -> =
+A1 -> CZ X
+B1 -> OP B2
+B2 -> CZ X
+C1 -> OP C2
+C2 -> CZ X
+D1 -> OP D2
+D2 -> CZ X
+E1 -> OP E2
+E2 -> CZ X
+X ->  VAR | X F1 | X G1 | num | X H1 | X I1 | X J1 | CX K1 | CI BRACKET | TYPE X1 | BY BRACKET | BW AE1 | true | false | BOOL L1 | BOOL M1 | CS BOOL | X N1 | X O1 | CO R1 | CM S1 | WORD T1
+F1 -> OP X
+CY -> ,
+G1 -> CY X
+VAR -> var
+VAL -> num | X H1 | X I1 | X J1 | CX K1 | true | false | BOOL L1 | BOOL M1 | CS BOOL | X N1 | X O1 | CO R1 | CM S1 | WORD T1
+H1 -> OP X
+I1 -> OP I2
+I2 -> OP X
+J1 -> OP J2
+J2 -> OP X
+CX -> (
+CW -> )
+K1 -> X CW
+BOOL -> true | false | BOOL L1 | BOOL M1 | CS BOOL | X N1 | X O1
+CU -> and
+L1 -> CU BOOL
+CT -> or
+M1 -> CT BOOL
+CS -> not
+CR -> is
+N1 -> CR X
+O1 -> BOOLOP X
+BOOLOP -> > | < | CZ CZ | CQ CZ | BOOLOP CZ | BOOLOP CZ
+CQ -> !
+CP -> :
+BOOLEANEX -> CX P1 | BOOL Q1
+P1 -> BOOL P2
+P2 -> CW P3
+P3 -> CP START
+Q1 -> CP START
+OP -> + | - | * | / | %
+CO -> "
+CN -> word
+WORD -> CO R1 | CM S1 | WORD T1
+R1 -> CN CO
+CM -> '
+S1 -> CN CM
+T1 -> OP WORD
+TYPE -> int | float | str
+BREAK -> break
+PASS -> pass
+CONTINUE -> continue
+IF -> IF ELIF | IF ELSE | CL BOOLEANEX | IF BREAK | IF PASS | IF CONTINUE | IF RAISE
+CL -> if
+ELIF -> ELIF ELIF | ELIF U1
+U1 -> ELSE U2
+U2 -> |elif BOOLEANEX
+CK -> else
+ELSE -> CK W1
+W1 -> CP START
+CJ -> print
+PRINT -> CJ BRACKET
+CI -> input
+INPUT -> CI BRACKET | TYPE X1
+X1 -> CX X2
+X2 -> INPUT CW
+CH -> for
+CG -> in
+FOR -> CH Y1 | CH Z1
+Y1 -> VAR Y2
+Y2 -> CG Y3
+Y3 -> WORD Y4
+Y4 -> CP START
+Z1 -> VAR Z2
+Z2 -> CG Z3
+Z3 -> RANGE Z4
+Z4 -> CP START
+CF -> range
+RANGE -> CF BRACKET
+BRACKET -> CX AA1 | CX CW
+AA1 -> X CW
+CE -> while
+WHILE -> CE BOOLEANEX
+CD -> def
+DEF -> CD AB1 | DEF RETURN
+AB1 -> VAR AB2
+AB2 -> BRACKET AB3
+AB3 -> CP START
+CC -> return
+RETURN -> CC BOOL | CC VAL
+CB -> import
+CA -> as
+IMPORT -> CB AC1 | CB VAR
+AC1 -> VAR AC2
+AC2 -> CA VAR
+BZ -> from
+FROM -> BZ AD1
+AD1 -> VAR IMPORT
+BY -> len
+METHOD -> BY BRACKET | BW AE1
+BX -> open
+BW -> with
+AE1 -> BX AE2
+AE2 -> BRACKET AE3
+AE3 -> CA VARCLASS
+COMMENT -> CO AF1 | CM AG1
+AF1 -> CO AF2
+AF2 -> CO AF3
+AF3 -> CONTENT AF4
+AF4 -> CO AF5
+AF5 -> CO CO
+AG1 -> CM AG2
+AG2 -> CM AG3
+AG3 -> CONTENT AG4
+AG4 -> CM AG5
+AG5 -> CM CM
+CONTENT -> CONTENT CONTENT | var
+BU -> raise
+RAISE -> BU BRACKET
+S0 -> START START | VAR A1 | VAR B1 | VAR C1 | VAR D1 | VAR E1 | IF ELIF | IF ELSE | CL BOOLEANEX | IF BREAK | IF PASS | IF CONTINUE | IF RAISE | CJ BRACKET | CH Y1 | CH Z1 | CE BOOLEANEX | CD AB1 | DEF RETURN | CB AC1 | CB VAR | BZ AD1 | CO AF1 | CM AG1
