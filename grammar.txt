@@ -16,7 +16,7 @@ TYPE -> int | float | str;
 BREAK -> break;
 PASS -> pass;
 CONTINUE -> continue;
-IF -> IF ELIF | IF ELSE | if BOOLEANEX | IF BREAK | IF PASS | IF CONTINUE | IF RAISE;
+IF -> IF ELIF | IF ELSE | IF BOOLEANEX | IF BREAK | IF PASS | IF CONTINUE | IF RAISE;
 ELIF -> ELIF ELIF | ELIF ELSE |elif BOOLEANEX;
 ELSE -> else : START;
 PRINT -> print BRACKET;
