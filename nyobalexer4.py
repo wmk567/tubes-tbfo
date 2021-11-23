@@ -3,10 +3,10 @@ def lexer(file):
     hasil2 = hasil.read()
 
     result = []
-    operator = ['!','+','-','*','/','%','(',')','=','<','>',',','"','\'','==','<=','>=','!=',':']
+    operator = ['!','+','-','*','/','%','(',')','=','<','>',',','"','\'','==','<=','>=','!=',':','[',']']
     keyword = ["False","None","True","and","as","assert","break","class","continue","def","del","elif","else","except","finally",
             "for","from","global","if","import","in","is","lambda","nonlocal","not","or","pass","raise","return","try",
-            "while","with","yield","range"]
+            "while","with","yield","range","print"]
     alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
     number = ["1","2","3","4","5","6","7","8","9","0"]
     word = ""
@@ -120,7 +120,11 @@ def lexer(file):
     while (m+1<len(result)):
         if (result[m] == "word" and result[m+1] == "word"):
             del result[m+1]
+        elif result[m] == " ":
+            del result[m]
         else:
             m+=1
-    return result
+    if result[len(result)-1] == " ":
+        del result[len(result)-1]
 
+    return result

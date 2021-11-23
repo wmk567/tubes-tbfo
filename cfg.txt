@@ -1,0 +1,37 @@
+Terminals:
++ - * / = ' " ( ) [ ] , : ! < > and as break class continue def elif else for from if import in is not or pass return while var num True False word range print
+Variables:
+START VAR VAL BOOL BOOLOP OP CALC IF ELIF ELSE WHILE FOR RANGE COMMENT DEF CLASS RETURN FROM IMPORT CONTENT WORD START2 IF2 ELIF2 ELSE2 START3 IF3 ELIF3 ELSE3 PRINT ARRAY CONTENT2
+Productions:
+START -> START START | VAR = CALC | VAR = VAL | VAR = BOOL | VAR = CONTENT | VAR = ARRAY | IF | DEF | CLASS | FOR | WHILE | IMPORT | FROM | COMMENT | VAR + = VAL | VAR - = VAL | VAR * = VAL | VAR / = VAL | PRINT;
+VAR -> var;
+VAL -> num | WORD;
+CONTENT -> CONTENT CONTENT | VAL | VAR | CALC | ( CONTENT ) | WORD;
+BOOL -> True | False | CONTENT BOOLOP CONTENT | CONTENT in CONTENT | CONTENT is CONTENT | CONTENT or CONTENT | CONTENT and CONTENT | not CONTENT | BOOL or BOOL | BOOL and BOOL | not BOOL;
+BOOLOP -> == | != | <= | >= | < | >;
+OP -> + | - | * | / | %;
+CALC -> VAL OP VAL | VAR OP VAL | VAL OP VAR;
+IF -> if ( BOOL ) : START | if BOOL : START | IF ELIF | IF ELSE;
+ELIF -> elif ( BOOL ) : START | elif BOOL : START | ELIF ELIF | ELIF ELSE;
+ELSE -> else : START; 
+WHILE -> while ( BOOL ) : START3 | while BOOL : START3 | while ( BOOL ) : break | while BOOL : break | while ( BOOL ) : continue | while BOOL : continue | while ( BOOL ) : pass | while BOOL : break | WHILE continue | WHILE pass | WHILE break;
+FOR -> for VAR in VAR : START3 | for VAR in RANGE | for VAR in VAR : break | for VAR in VAR : pass | for VAR in VAR : continue;
+RANGE -> range ( num ) : START3 | range ( num , num ) : START3 | range ( num , num , num ) : START3 | range ( num ) : break | range ( num , num ) : break | range ( num , num , num ) : break | range ( num ) : continue | range ( num , num ) : continue | range ( num , num , num ) : continue | range ( num ) : pass | range ( num , num ) : pass | range ( num , num , num ) : pass | RANGE continue | RANGE pass | RANGE break;
+COMMENT -> ' ' ' word ' ' ' | " " " word " " ";
+DEF -> def VAR ( CONTENT ) : START2 | def VAR ( ) : START2 | DEF RETURN | def VAR ( CONTENT ) : RETURN | def VAR ( ) : RETURN | def VAR ( CONTENT ) : pass | def VAR ( ) : pass | DEF pass;
+CLASS -> class VAR : START | class VAR : pass;
+RETURN -> return BOOL | return VAL | return WORD;
+FROM -> from VAR IMPORT;
+IMPORT -> import VAR | import VAR as VAR;
+WORD -> " word " | ' word ' | WORD + WORD;
+START2 -> START2 START2 | VAR = CALC | VAR = VAL | VAR = ARRAY | IF2 | FOR | WHILE | COMMENT | VAR + = VAL | VAR - = VAL | VAR * = VAL | VAR / = VAL | PRINT;
+IF2 -> if ( BOOL ) : START2 | if BOOL : START2 | IF2 ELIF2 | IF2 ELSE2 | IF2 RETURN | if ( BOOL ) : RETURN | if BOOL : RETURN | IF2 pass | if ( BOOL ) : pass | if BOOL : pass;
+ELIF2 -> elif ( BOOL ) : START2 | elif BOOL : START2 | ELIF2 ELIF2 | ELIF2 ELSE2 | elif ( BOOL ) : RETURN | elif BOOL : RETURN;
+ELSE2 -> else : START2 | else : RETURN;
+START3 -> START3 START3 | VAR = CALC | VAR = VAL | VAR = ARRAY | IF3 | FOR | WHILE | COMMENT | VAR + = VAL | VAR - = VAL | VAR * = VAL | VAR / = VAL | PRINT;
+IF3 -> if ( BOOL ) : START3 | if BOOL : START3 | IF3 ELIF3 | IF3 ELSE3 | IF3 break | if ( BOOL ) : break | if BOOL : break | IF3 pass | if ( BOOL ) : pass | if BOOL : pass | if ( BOOL ) : continue | if BOOL : continue | IF3 continue;
+ELIF3 -> elif ( BOOL ) : START3 | elif BOOL : START3 | ELIF3 ELIF3 | ELIF3 ELSE3 | elif ( BOOL ) : break | elif BOOL : break | ELIF3 break | elif ( BOOL ) : continue | elif BOOL : continue | ELIF3 continue | elif ( BOOL ) : pass | elif BOOL : pass | ELIF3 pass;
+ELSE3 -> else : START3 | else : break | else : continue | else : pass;
+PRINT -> print ( CONTENT );
+ARRAY -> [ CONTENT2 ];
+CONTENT2 -> CONTENT2 , CONTENT2 | VAL | VAR | ( CONTENT2 ) | WORD
