@@ -23,7 +23,7 @@ CLASS -> class VAR : START | class VAR : pass;
 RETURN -> return BOOL | return VAL | return WORD;
 FROM -> from VAR IMPORT;
 IMPORT -> import VAR | import VAR as VAR;
-WORD -> " word " | ' word ' | WORD + WORD;
+WORD -> " word " | ' word ' | WORD + WORD | " " | ' ';
 START2 -> START2 START2 | VAR = CALC | VAR = VAL | VAR = ARRAY | IF2 | FOR | WHILE | COMMENT | VAR + = VAL | VAR - = VAL | VAR * = VAL | VAR / = VAL | PRINT;
 IF2 -> if ( BOOL ) : START2 | if BOOL : START2 | IF2 ELIF2 | IF2 ELSE2 | IF2 RETURN | if ( BOOL ) : RETURN | if BOOL : RETURN | IF2 pass | if ( BOOL ) : pass | if BOOL : pass;
 ELIF2 -> elif ( BOOL ) : START2 | elif BOOL : START2 | ELIF2 ELIF2 | ELIF2 ELSE2 | elif ( BOOL ) : RETURN | elif BOOL : RETURN;
@@ -32,6 +32,6 @@ START3 -> START3 START3 | VAR = CALC | VAR = VAL | VAR = ARRAY | IF3 | FOR | WHI
 IF3 -> if ( BOOL ) : START3 | if BOOL : START3 | IF3 ELIF3 | IF3 ELSE3 | IF3 break | if ( BOOL ) : break | if BOOL : break | IF3 pass | if ( BOOL ) : pass | if BOOL : pass | if ( BOOL ) : continue | if BOOL : continue | IF3 continue;
 ELIF3 -> elif ( BOOL ) : START3 | elif BOOL : START3 | ELIF3 ELIF3 | ELIF3 ELSE3 | elif ( BOOL ) : break | elif BOOL : break | ELIF3 break | elif ( BOOL ) : continue | elif BOOL : continue | ELIF3 continue | elif ( BOOL ) : pass | elif BOOL : pass | ELIF3 pass;
 ELSE3 -> else : START3 | else : break | else : continue | else : pass;
-PRINT -> print ( CONTENT );
+PRINT -> print ( CONTENT ) | print ( );
 ARRAY -> [ CONTENT2 ];
 CONTENT2 -> CONTENT2 , CONTENT2 | VAL | VAR | ( CONTENT2 ) | WORD
