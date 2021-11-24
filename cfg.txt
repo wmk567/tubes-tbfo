@@ -1,16 +1,16 @@
 Terminals:
-+ - * / = ' " ( ) [ ] , : ! < > and as break class continue def elif else for from if import in is not or pass return while var num True False word range print None raise
++ - * / = ' " ( ) [ ] , : ! < > and as break class continue def elif else for from if import in is not or pass return while var num True False word range print None raise with
 Variables:
-START VAR VAL BOOL BOOLOP OP CALC IF ELIF ELSE WHILE FOR RANGE COMMENT DEF CLASS RETURN FROM IMPORT CONTENT WORD START2 IF2 ELIF2 ELSE2 START3 IF3 ELIF3 ELSE3 PRINT ARRAY CONTENT2 VAR2 RAISE FUNCTION
+START VAR VAL BOOL BOOLOP OP CALC IF ELIF ELSE WHILE FOR RANGE COMMENT DEF CLASS RETURN FROM IMPORT CONTENT WORD START2 IF2 ELIF2 ELSE2 START3 IF3 ELIF3 ELSE3 PRINT ARRAY CONTENT2 VAR2 RAISE FUNCTION WITH
 Productions:
-START -> START START | VAR = CALC | VAR = VAL | VAR = NONE | VAR = BOOL | VAR = CONTENT | VAR = ARRAY | VAR = FUNCTION | IF | DEF | CLASS | FOR | WHILE | IMPORT | FROM | COMMENT | VAR + = VAL | VAR - = VAL | VAR * = VAL | VAR / = VAL | PRINT | RAISE | FUNCTION;
+START -> START START | VAR = CALC | VAR = VAL | VAR = NONE | VAR = BOOL | VAR = CONTENT | VAR = ARRAY | VAR = FUNCTION | IF | DEF | CLASS | FOR | WHILE | IMPORT | FROM | COMMENT | VAR + = VAL | VAR - = VAL | VAR * = VAL | VAR / = VAL | PRINT | RAISE | FUNCTION | WITH;
 VAR -> var;
 VAL -> num | WORD;
 CONTENT -> CONTENT CONTENT | VAL | VAR | CALC | ( CONTENT ) | WORD;
 BOOL -> True | False | CONTENT BOOLOP CONTENT | CONTENT in CONTENT | CONTENT is CONTENT | CONTENT or CONTENT | CONTENT and CONTENT | not CONTENT | BOOL or BOOL | BOOL and BOOL | not BOOL | ( BOOL );
 BOOLOP -> == | != | <= | >= | < | >;
 OP -> + | - | * | / | %;
-CALC -> VAL OP VAL | VAR OP VAL | VAL OP VAR;
+CALC -> VAL OP VAL | VAR OP VAL | VAL OP VAR | VAR OP VAR;
 IF -> if ( BOOL ) : START | if BOOL : START | IF ELIF | IF ELSE;
 ELIF -> elif ( BOOL ) : START | elif BOOL : START | ELIF ELIF | ELIF ELSE;
 ELSE -> else : START; 
@@ -25,11 +25,11 @@ FROM -> from VAR IMPORT;
 IMPORT -> import VAR2 | import VAR as VAR;
 VAR2 -> VAR | VAR2 , VAR2;
 WORD -> " word " | ' word ' | WORD + WORD | " " | ' ';
-START2 -> START2 START2 | VAR = CALC | VAR = VAL | VAR = ARRAY | VAR = NONE | VAR = FUNCTION | IF2 | FOR | WHILE | COMMENT | VAR + = VAL | VAR - = VAL | VAR * = VAL | VAR / = VAL | PRINT | RAISE | FUNCTION;
+START2 -> START2 START2 | VAR = CALC | VAR = VAL | VAR = ARRAY | VAR = NONE | VAR = FUNCTION | IF2 | FOR | WHILE | COMMENT | VAR + = VAL | VAR - = VAL | VAR * = VAL | VAR / = VAL | PRINT | RAISE | FUNCTION | WITH;
 IF2 -> if ( BOOL ) : START2 | if BOOL : START2 | IF2 ELIF2 | IF2 ELSE2 | IF2 RETURN | if ( BOOL ) : RETURN | if BOOL : RETURN | IF2 pass | if ( BOOL ) : pass | if BOOL : pass;
 ELIF2 -> elif ( BOOL ) : START2 | elif BOOL : START2 | ELIF2 ELIF2 | ELIF2 ELSE2 | elif ( BOOL ) : RETURN | elif BOOL : RETURN;
 ELSE2 -> else : START2 | else : RETURN;
-START3 -> START3 START3 | VAR = CALC | VAR = VAL | VAR = ARRAY | VAR = NONE | VAR = FUNCTION | IF3 | FOR | WHILE | COMMENT | VAR + = VAL | VAR - = VAL | VAR * = VAL | VAR / = VAL | PRINT | RAISE | FUNCTION;
+START3 -> START3 START3 | VAR = CALC | VAR = VAL | VAR = ARRAY | VAR = NONE | VAR = FUNCTION | IF3 | FOR | WHILE | COMMENT | VAR + = VAL | VAR - = VAL | VAR * = VAL | VAR / = VAL | PRINT | RAISE | FUNCTION | WITH;
 IF3 -> if ( BOOL ) : START3 | if BOOL : START3 | IF3 ELIF3 | IF3 ELSE3 | IF3 break | if ( BOOL ) : break | if BOOL : break | IF3 pass | if ( BOOL ) : pass | if BOOL : pass | if ( BOOL ) : continue | if BOOL : continue | IF3 continue;
 ELIF3 -> elif ( BOOL ) : START3 | elif BOOL : START3 | ELIF3 ELIF3 | ELIF3 ELSE3 | elif ( BOOL ) : break | elif BOOL : break | ELIF3 break | elif ( BOOL ) : continue | elif BOOL : continue | ELIF3 continue | elif ( BOOL ) : pass | elif BOOL : pass | ELIF3 pass;
 ELSE3 -> else : START3 | else : break | else : continue | else : pass;
@@ -37,4 +37,5 @@ PRINT -> print ( CONTENT ) | print ( );
 ARRAY -> [ CONTENT2 ] | [ ARRAY ] | ARRAY , ARRAY;
 CONTENT2 -> CONTENT2 , CONTENT2 | VAL | VAR | ( CONTENT2 ) | WORD;
 RAISE -> raise VAR ( CONTENT ) | raise VAR ( );
-FUNCTION -> VAR ( CONTENT2 ) | VAR ( )
+FUNCTION -> VAR ( CONTENT2 ) | VAR ( );
+WITH -> with VAR as VAR : START
