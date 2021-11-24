@@ -14,13 +14,13 @@ Program checker1 dan checker2 digunakan untuk mengecek kebenaran syntax bahasa p
 
 Cara menjalankan program adalah dengan melakukan input sebagai berikut :
 
-'''bash
+```bash
 py checker1 input_file.py
-'''
+```
 
 Atau jika menggunakan checker2 :
 
-'''bash
+```bash
 py checker2 input_file.py
-'''
+```
 
