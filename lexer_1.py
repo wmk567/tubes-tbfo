@@ -114,6 +114,7 @@ def lexer(file):
                         result[j] = "NaN"
 
         j += 1
+        
     m = 0
     while (m+1<len(result)):
         if (result[m] == "word" and result[m+1] == "word"):
