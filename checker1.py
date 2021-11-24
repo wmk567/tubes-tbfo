@@ -10,6 +10,6 @@ w = lexer_1.lexer(simpan)
 finale = simpanparse.cykParse(w,R)
 
 if finale:
-    print("Diterima")
+    print("Accepted")
 else:
-    print("Ada error")
+    print("Syntax Error")
