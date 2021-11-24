@@ -20,7 +20,3 @@ def CNFtoDict(file):
     return R
 
 
-
-R = CNFtoDict("out.txt")
-for i in range (0,50):
-    print(list(R.items())[i])
