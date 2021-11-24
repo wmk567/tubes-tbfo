@@ -43,4 +43,5 @@ def parseAkhir(w,R):
         else : 
             pass
         n += 1
+    
     return isValid
