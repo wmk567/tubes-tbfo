@@ -10,9 +10,9 @@ w = lexer_2.lexer(simpan)
 finale = simpanparse2.parseAkhir(w,R)
 
 if finale:
-    print("Diterima")
+    print("Accepted")
 else:
-    print("Ada error")
+    print("Syntax Error")
 
 
 
