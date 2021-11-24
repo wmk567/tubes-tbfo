@@ -40,7 +40,6 @@ def lexer(file):
                 word = ""
         elif i == (len(hasil2)-1) :
             word = word + hasil2[i]
-            print(word)
             result.append(word)
             word = ""
         elif hasil2[i] not in operator and hasil2[i] != " ": 
@@ -114,7 +113,7 @@ def lexer(file):
                         result[j] = "NaN"
 
         j += 1
-        
+
     m = 0
     while (m+1<len(result)):
         if (result[m] == "word" and result[m+1] == "word"):
