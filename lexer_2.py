@@ -5,7 +5,6 @@ def lexer(file):
     temp2 = temp.split("\n")
     temp3 = len(temp2)
 
-
     result = [[] for x in range (temp3)]
     operator = ['!','+','-','*','/','%','(',')','=','<','>',',','"','\'','==','<=','>=','!=',':','[',']']
     keyword = ["False","None","True","and","as","assert","break","class","continue","def","del","elif","else","except","finally",
