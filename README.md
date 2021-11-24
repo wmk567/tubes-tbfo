@@ -16,15 +16,18 @@ Cara menjalankan program adalah dengan melakukan input sebagai berikut :
 
 ```bash
 py checker1 input_file.py
-atau
-python checker1.py input_file.py
 ```
+atau
+'''bash
+python checker1.py input_file.py
+'''
 
 Atau jika menggunakan checker2 :
 
 ```bash
 py checker2 input_file.py
-atau
-python checker2.py input_file.py
 ```
-
+atau
+'''bash
+python checker2.py input_file.py
+'''
