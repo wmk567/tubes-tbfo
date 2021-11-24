@@ -18,9 +18,9 @@ Cara menjalankan program adalah dengan melakukan input sebagai berikut :
 py checker1 input_file.py
 ```
 atau
-'''bash
+```bash
 python checker1.py input_file.py
-'''
+```
 
 Atau jika menggunakan checker2 :
 
@@ -28,6 +28,6 @@ Atau jika menggunakan checker2 :
 py checker2 input_file.py
 ```
 atau
-'''bash
+```bash
 python checker2.py input_file.py
-'''
+```
